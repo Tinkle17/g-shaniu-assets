@@ -1,0 +1,52 @@
+name: Import approved post assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: Approved content_posts UUID
+        required: true
+        type: string
+      series:
+        description: Asset series
+        required: true
+        type: choice
+        options:
+          - hundred-cities
+      episode:
+        description: Three-digit episode number
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: asset-import-${{ inputs.series }}-${{ inputs.episode }}
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: true
+      - name: Import and verify approved assets
+        run: >-
+          python3 scripts/import_from_bridge.py
+          --post-id "${{ inputs.post_id }}"
+          --series "${{ inputs.series }}"
+          --episode "${{ inputs.episode }}"
+      - name: Commit exact imported assets
+        run: |
+          git config user.name "g-shaniu-assets-bot"
+          git config user.email "106011173+Tinkle17@users.noreply.github.com"
+          git add -- "${{ inputs.series }}/${{ inputs.episode }}"
+          if git diff --cached --quiet; then
+            echo "No asset changes"
+            exit 0
+          fi
+          git commit -m "assets(${{ inputs.series }}): import ${{ inputs.episode }}"
+          git push origin HEAD:main
