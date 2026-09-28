@@ -54,7 +54,9 @@ def sync(series: str, episode: str, cleanup_days: int):
     if bundle_name != Path(bundle_name).name or not bundle_name.endswith(".zip"):
         raise RuntimeError("invalid_bundle_name")
 
-    if bundle_name != "bundle.zip":\n        raise RuntimeError("bundle_name_must_be_bundle_zip")\n    bundle = fetch(base + "bundle.zip", MAX_BUNDLE_BYTES)
+    if bundle_name != "bundle.zip":
+        raise RuntimeError("bundle_name_must_be_bundle_zip")
+    bundle = fetch(base + "bundle.zip", MAX_BUNDLE_BYTES)
     expected_bundle_sha = str(bundle_meta.get("sha256") or "").lower()
     if len(expected_bundle_sha) != 64 or sha256_bytes(bundle) != expected_bundle_sha:
         raise RuntimeError("bundle_sha_mismatch")
