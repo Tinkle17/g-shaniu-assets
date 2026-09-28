@@ -2,7 +2,7 @@
 import argparse, hashlib, json, os, shutil, subprocess, time, urllib.request, zipfile
 from pathlib import Path
 
-RAW_ROOT = "https://raw.githubusercontent.com/Tinkle17/g-shaniu-assets/main"
+MIRROR = "https://kmpdlizvwzdxplbarhcv.supabase.co/functions/v1/github-asset-mirror"
 LOCAL_ROOT = Path("/sdcard/Pictures/G-ShaNiu/Publish")
 MAX_BUNDLE_BYTES = 25 * 1024 * 1024
 
@@ -43,8 +43,8 @@ def sync(series: str, episode: str, cleanup_days: int):
     if not series.replace("-", "").isalnum() or not episode.isdigit():
         raise RuntimeError("invalid_series_or_episode")
 
-    base = f"{RAW_ROOT}/{series}/{episode}"
-    manifest_bytes = fetch(base + "/manifest.json", 512 * 1024)
+    base = f"{MIRROR}?series={series}&episode={episode}&file="
+    manifest_bytes = fetch(base + "manifest.json", 512 * 1024)
     manifest = json.loads(manifest_bytes)
     if str(manifest.get("series")) != series or str(manifest.get("episode")) != episode:
         raise RuntimeError("manifest_identity_mismatch")
@@ -54,7 +54,7 @@ def sync(series: str, episode: str, cleanup_days: int):
     if bundle_name != Path(bundle_name).name or not bundle_name.endswith(".zip"):
         raise RuntimeError("invalid_bundle_name")
 
-    bundle = fetch(base + "/" + bundle_name, MAX_BUNDLE_BYTES)
+    if bundle_name != "bundle.zip":\n        raise RuntimeError("bundle_name_must_be_bundle_zip")\n    bundle = fetch(base + "bundle.zip", MAX_BUNDLE_BYTES)
     expected_bundle_sha = str(bundle_meta.get("sha256") or "").lower()
     if len(expected_bundle_sha) != 64 or sha256_bytes(bundle) != expected_bundle_sha:
         raise RuntimeError("bundle_sha_mismatch")
