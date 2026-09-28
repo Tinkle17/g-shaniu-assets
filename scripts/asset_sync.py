@@ -63,7 +63,7 @@ def decode_transport(payload: bytes, encoding: str) -> bytes:
         return payload
     if encoding == "base64":
         try:
-            return base64.b64decode(payload, validate=True)
+            return base64.b64decode(b"".join(payload.split()), validate=True)
         except Exception as e:
             raise RuntimeError("bundle_base64_invalid") from e
     raise RuntimeError("unsupported_bundle_encoding:" + encoding)
