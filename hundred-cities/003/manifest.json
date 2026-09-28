@@ -1,1 +1,98 @@
-{"schema":"g-shaniu-assets-v1","series":"hundred-cities","episode":"003","city":"杭州","date":"2026-09-28","version":"v3.2-logo-web","source_version":"v3.2-logo","asset_count":8,"assets":[{"ordinal":0,"filename":"01.jpg","size_bytes":126724,"sha256":"977417a595b5b6284393026213af901d6846e15fb3bc607db3e3cc3745b86781","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":1,"filename":"02.jpg","size_bytes":66806,"sha256":"06e76bd23d641c5f10357941fea1869a390ebc34942aa4c9c4d571e479157aa2","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":2,"filename":"03.jpg","size_bytes":52231,"sha256":"356f287690214bc5bc041bd0b4bf88c31bf7db7a3a6f4a59f99fd2df0a34be74","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":3,"filename":"04.jpg","size_bytes":82743,"sha256":"bd60bef55b1e219185b7dac6b7fd6098bf0f7e2bab5d091498781e05a024b81c","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":4,"filename":"05.jpg","size_bytes":81796,"sha256":"f191bdc50cd08a0d5e7e4ba1c8f638b7a02d2b24ceab31f4a787cda7959953df","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":5,"filename":"06.jpg","size_bytes":65352,"sha256":"7a004773f1582f7f73f7cbd67841bbfe6146007b2d37241ed41992e53927ec2d","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":6,"filename":"07.jpg","size_bytes":81771,"sha256":"cfd791abb15b45994597e16f20544a538a370234a895b1dea61f38abcc95d5bd","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true},{"ordinal":7,"filename":"08.jpg","size_bytes":65217,"sha256":"fe314dacc893fdd9b783f972b5785ffe1ffed48b05deecef9663552661801cc3","width":1080,"height":1440,"logo_episode":"003/100","logo_present":true}],"bundle":{"filename":"bundle.zip","size_bytes":539542,"sha256":"ba3e797c2cb2225b82af931dcf44acbf27215bfa3348a16fa0516d5be27f1ca5"}}
+{
+  "schema": "g-shaniu-assets-v1",
+  "series": "hundred-cities",
+  "episode": "003",
+  "city": "杭州",
+  "date": "2026-09-28",
+  "version": "v3.2-logo-web",
+  "source_version": "v3.2-logo",
+  "asset_count": 8,
+  "assets": [
+    {
+      "ordinal": 0,
+      "filename": "01.jpg",
+      "size_bytes": 126724,
+      "sha256": "977417a595b5b6284393026213af901d6846e15fb3bc607db3e3cc3745b86781",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 1,
+      "filename": "02.jpg",
+      "size_bytes": 66806,
+      "sha256": "06e76bd23d641c5f10357941fea1869a390ebc34942aa4c9c4d571e479157aa2",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 2,
+      "filename": "03.jpg",
+      "size_bytes": 52231,
+      "sha256": "356f287690214bc5bc041bd0b4bf88c31bf7db7a3a6f4a59f99fd2df0a34be74",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 3,
+      "filename": "04.jpg",
+      "size_bytes": 82743,
+      "sha256": "bd60bef55b1e219185b7dac6b7fd6098bf0f7e2bab5d091498781e05a024b81c",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 4,
+      "filename": "05.jpg",
+      "size_bytes": 81796,
+      "sha256": "f191bdc50cd08a0d5e7e4ba1c8f638b7a02d2b24ceab31f4a787cda7959953df",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 5,
+      "filename": "06.jpg",
+      "size_bytes": 65352,
+      "sha256": "7a004773f1582f7f73f7cbd67841bbfe6146007b2d37241ed41992e53927ec2d",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 6,
+      "filename": "07.jpg",
+      "size_bytes": 81771,
+      "sha256": "cfd791abb15b45994597e16f20544a538a370234a895b1dea61f38abcc95d5bd",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    },
+    {
+      "ordinal": 7,
+      "filename": "08.jpg",
+      "size_bytes": 65217,
+      "sha256": "fe314dacc893fdd9b783f972b5785ffe1ffed48b05deecef9663552661801cc3",
+      "width": 1080,
+      "height": 1440,
+      "logo_episode": "003/100",
+      "logo_present": true
+    }
+  ],
+  "bundle": {
+    "filename": "bundle.zip.b64",
+    "size_bytes": 539542,
+    "sha256": "ba3e797c2cb2225b82af931dcf44acbf27215bfa3348a16fa0516d5be27f1ca5",
+    "encoding": "base64"
+  }
+}
