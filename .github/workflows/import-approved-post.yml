@@ -11,18 +11,21 @@ on:
         description: Asset series
         required: true
         type: choice
-        options:
-          - hundred-cities
+        options: [hundred-cities]
       episode:
         description: Three-digit episode number
         required: true
         type: string
+  push:
+    branches: [main]
+    paths:
+      - 'requests/*.json'
 
 permissions:
   contents: write
 
 concurrency:
-  group: asset-import-${{ inputs.series }}-${{ inputs.episode }}
+  group: asset-import-main
   cancel-in-progress: false
 
 jobs:
@@ -33,20 +36,23 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: true
+      - name: Create dispatch request
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          mkdir -p requests
+          cat > "requests/dispatch-${{ github.run_id }}.json" <<'JSON'
+          {"post_id":"${{ inputs.post_id }}","series":"${{ inputs.series }}","episode":"${{ inputs.episode }}"}
+          JSON
       - name: Import and verify approved assets
-        run: >-
-          python3 scripts/import_from_bridge.py
-          --post-id "${{ inputs.post_id }}"
-          --series "${{ inputs.series }}"
-          --episode "${{ inputs.episode }}"
+        run: python3 scripts/process_requests.py
       - name: Commit exact imported assets
         run: |
           git config user.name "g-shaniu-assets-bot"
           git config user.email "106011173+Tinkle17@users.noreply.github.com"
-          git add -- "${{ inputs.series }}/${{ inputs.episode }}"
+          git add --all -- hundred-cities requests
           if git diff --cached --quiet; then
             echo "No asset changes"
             exit 0
           fi
-          git commit -m "assets(${{ inputs.series }}): import ${{ inputs.episode }}"
+          git commit -m "assets: import approved request"
           git push origin HEAD:main
