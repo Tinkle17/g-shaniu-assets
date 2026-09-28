@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/python3
-import argparse, hashlib, json, os, shutil, subprocess, time, urllib.request, zipfile
+import argparse, hashlib, json, os, re, shutil, subprocess, time, urllib.request, zipfile
 from pathlib import Path
 
 MIRROR = "https://kmpdlizvwzdxplbarhcv.supabase.co/functions/v1/github-asset-mirror"
 LOCAL_ROOT = Path("/sdcard/Pictures/G-ShaNiu/Publish")
-MAX_BUNDLE_BYTES = 25 * 1024 * 1024
+MAX_BUNDLE_BYTES = 25 * 1024 * 1024\nMANAGED_DIR = re.compile(r"^hundred-cities-\\d{3}$")
 
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
