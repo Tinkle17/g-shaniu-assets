@@ -16,14 +16,14 @@ Each `manifest.json` is the source of truth for asset count, SHA-256, original f
 
 ## Device contract
 
-MI6 never clones the full repository. ShaNiu/Hermes downloads only the requested manifest and bundle from `raw.githubusercontent.com`, verifies the bundle SHA-256 and every contained asset, then atomically stages the episode under:
+MI6 never clones the full repository. ShaNiu/Hermes downloads only the requested manifest and bundle through the bounded `github-asset-mirror` relay, verifies the bundle SHA-256 and every contained asset, then atomically stages the episode under:
 
 `/sdcard/Pictures/G-ShaNiu/Publish/<series>-<episode>/`
 
-No GitHub credential is required because this repository contains only final assets intended for public posting.
+No GitHub credential is required because this repository contains only final assets intended for public posting. MI6 direct GitHub access is not relied on: both raw-file HTTPS and Git-over-HTTPS timed out in device acceptance on 2026-09-28.
 
 ## Retention
 
-GitHub is the durable archive for final published assets. MI6 is a cache: the sync script removes local publish directories older than 7 days by default, while never deleting the episode currently being synced.
+GitHub is the durable archive for final published assets. MI6 is a cache: each successful sync performs bounded lazy cleanup with a seven-day default retention, while never deleting the episode currently being synced. Cleanup is restricted in source to managed `hundred-cities-NNN` directories.
 
 Intermediate renders, diagnostics, credentials, private data and unpublished sensitive material must never be committed here.
