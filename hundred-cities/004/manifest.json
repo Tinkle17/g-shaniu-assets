@@ -11,8 +11,8 @@
     {
       "ordinal": 0,
       "filename": "01.jpg",
-      "size_bytes": 238082,
-      "sha256": "087e5b67d2da2941cd62373e6f03e171560c123da4b4400e3d83d51317fd8c7e",
+      "size_bytes": 204836,
+      "sha256": "749f71c73e81b2d648a84aebd8a4ffda6c7c327d7a82b176c6f6b2d4bf600bd1",
       "width": 1080,
       "height": 1440,
       "logo_episode": "004/100",
@@ -92,8 +92,8 @@
   "cover_headline": "松阳漫记",
   "bundle": {
     "filename": "bundle.zip.b64",
-    "size_bytes": 746721,
-    "sha256": "31701fa4de83b461f14d97e9f518fa70b93eb0ec74b4c34bb2ad68ece5e05cbe",
+    "size_bytes": 714407,
+    "sha256": "88bb71285c434939b53c35d515456b16cd5cfac23ebcd4078436b98207e4ba1e",
     "encoding": "base64"
   },
   "built_by": "xhs004-songyang-manji-oneoff-v1"
