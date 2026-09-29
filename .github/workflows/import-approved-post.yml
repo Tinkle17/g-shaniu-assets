@@ -36,6 +36,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: true
+      - name: Install image patch dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq python3-pil fonts-noto-cjk
       - name: Create dispatch request
         if: github.event_name == 'workflow_dispatch'
         run: |
