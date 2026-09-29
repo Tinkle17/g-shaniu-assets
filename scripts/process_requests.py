@@ -13,15 +13,25 @@ def main():
     done=[]
     for p in files:
         data=json.loads(p.read_text())
-        post_id=str(data.get("post_id") or "")
+        mode=str(data.get("mode") or "import")
         series=str(data.get("series") or "")
         episode=str(data.get("episode") or "")
-        subprocess.run([
-            sys.executable,str(ROOT/"scripts/import_from_bridge.py"),
-            "--post-id",post_id,"--series",series,"--episode",episode
-        ],cwd=ROOT,check=True)
+        if mode=="patch_cover":
+            headline=str(data.get("cover_headline") or "").strip()
+            if not headline:
+                raise SystemExit("cover_headline_missing")
+            subprocess.run([
+                sys.executable,str(ROOT/"scripts/patch_cover.py"),
+                "--series",series,"--episode",episode,"--headline",headline
+            ],cwd=ROOT,check=True)
+        else:
+            post_id=str(data.get("post_id") or "")
+            subprocess.run([
+                sys.executable,str(ROOT/"scripts/import_from_bridge.py"),
+                "--post-id",post_id,"--series",series,"--episode",episode
+            ],cwd=ROOT,check=True)
         p.unlink()
-        done.append({"request":p.name,"series":series,"episode":episode})
+        done.append({"request":p.name,"mode":mode,"series":series,"episode":episode})
     print(json.dumps({"status":"processed","requests":done},ensure_ascii=False))
 
 if __name__=="__main__":
