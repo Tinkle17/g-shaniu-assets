@@ -1,0 +1,42 @@
+{
+  "series": "travel-guides",
+  "episode": "005",
+  "asset_count": 3,
+  "cover_ordinal": 0,
+  "cover_headline": "苏州慢慢逛",
+  "assets": [
+    {
+      "ordinal": 0,
+      "filename": "01.jpg",
+      "mime_type": "image/jpeg",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 122332,
+      "sha256": "bdaabbfe7cc6591d5c7fb79f444064f9a9f4ab0ff4ace687b87b1842b8ff2df7"
+    },
+    {
+      "ordinal": 1,
+      "filename": "02.jpg",
+      "mime_type": "image/jpeg",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 132978,
+      "sha256": "96adb9e9483364321d2c6e7b7ae736b2f28bf6c4cf582970d4023210a9a19ab7"
+    },
+    {
+      "ordinal": 2,
+      "filename": "03.jpg",
+      "mime_type": "image/jpeg",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 140494,
+      "sha256": "423eba848e96936a2ca24a7c901d29715e54a38e4fff5a085b99d125c9a1723d"
+    }
+  ],
+  "bundle": {
+    "filename": "bundle.zip.b64",
+    "encoding": "base64",
+    "size_bytes": 320760,
+    "sha256": "fae9558356ff3f3c172eeb7981d076e00ba66617db4e77dc44f078cde7ebb0cb"
+  }
+}
